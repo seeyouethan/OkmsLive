@@ -25,7 +25,15 @@ namespace OkmsLive.Forms
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Environment.Exit(0);
+            var dlg = new CloseWindow();
+            if (dlg.ShowDialog() == true)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void TitleStackPanedl_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,7 +54,11 @@ namespace OkmsLive.Forms
 
         private void CloseBtn_MouseLeftButtonDown(object sender,MouseButtonEventArgs e)
         {
-            Environment.Exit(0);
+            var dlg = new CloseWindow();
+            if (dlg.ShowDialog() == true)
+            {
+                Environment.Exit(0);
+            }
         }
         private void SizeBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -88,7 +100,6 @@ namespace OkmsLive.Forms
             window.WindowState = WindowState.Minimized;
         }
         #endregion
-
 
 
 

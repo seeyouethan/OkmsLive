@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OkmsLive.Forms"
         mc:Ignorable="d"
-        Title="登录" Height="420" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowDrop="True" ResizeMode="NoResize" BorderThickness="0" >
+        Title="登录" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowDrop="True" ResizeMode="NoResize" BorderThickness="0" >
     <Window.Background>
-        <ImageBrush ImageSource="../Resources/login_background.png"/>
+        <ImageBrush ImageSource="../Resources/loginBg.png"/>
     </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="330" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FFE6E6E6" BorderThickness="1" CornerRadius="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Resources/loginName.png" Width="24" Height="24" Margin="10,0,0,0"></Image>
+                <TextBox x:Name="UserName" Width="350" Height="45" VerticalContentAlignment="Center"  Margin="10,0,0,0" BorderBrush="White" FontSize="16" Foreground="Gray" BorderThickness="0" TextOptions.TextHintingMode="Animated" ></TextBox>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="#FFE6E6E6" BorderThickness="1" CornerRadius="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Resources/loginkey.png" Width="24" Height="24" Margin="10,0,0,0"></Image>
+                <PasswordBox x:Name="PasswordText" Width="360" Height="45" Margin="10,0,0,0" VerticalContentAlignment="Center"  BorderThickness="0" BorderBrush="White" TextOptions.TextHintingMode="Animated"></PasswordBox>
+            </StackPanel>
+        </Border>
+        <Button x:Name="LoginBtn" Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonStyle3}" xml:space="preserve" Height="60" TextOptions.TextHintingMode="Animated" Click="LoginBtn_Click">登      录</Button>
+        <Grid Grid.Row="1" Grid.Column="1" Width="180" Height="120">
+            <local:LoadingWait x:Name="UserLoading" Visibility="Collapsed"/>
+        </Grid>
+    </Grid>
 </Window>

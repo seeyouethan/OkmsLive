@@ -15,13 +15,15 @@ using System.Windows.Shapes;
 namespace OkmsLive.Forms
 {
     /// <summary>
-    /// ExitWindow.xaml 的交互逻辑
+    /// LoginWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ExitWindow : Window
+    public partial class ChooseCourseWindow : Window
     {
-        public ExitWindow()
+        public ChooseCourseWindow()
         {
             InitializeComponent();
         }
+
+        
     }
 }
