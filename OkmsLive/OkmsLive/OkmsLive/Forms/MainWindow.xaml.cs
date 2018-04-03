@@ -17,7 +17,8 @@ namespace OkmsLive.Forms
 
         private bool IsMax = false;//界面是否是最大化状态
         private bool IsLive = false;//是否正在直播
-        private LiveTypeWindow liveTypeWindow;
+        private LiveTypeWindow liveTypeWindow;//直播方式选择窗口
+        private ShareWindow shareWindow;//分享窗口
 
         public LiveType liveType = LiveType.Desktop;
 
@@ -143,7 +144,11 @@ namespace OkmsLive.Forms
             //打开摄像头选择选项
 
         }
-
+        /// <summary>
+        /// 直播方式选择按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LiveTypePanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //打开直播类型选项
@@ -161,10 +166,13 @@ namespace OkmsLive.Forms
             {
                 liveTypeWindow.Close();
                 liveTypeWindow = null;
-            }
-            
+            }            
         }
 
+        /// <summary>
+        /// 设置直播方式
+        /// </summary>
+        /// <param name="type"></param>
         public void SetLiveTypeImgAndText(LiveType type )
         {
             liveTypeWindow.Close();
@@ -185,6 +193,38 @@ namespace OkmsLive.Forms
                 img01.Source = new BitmapImage(new Uri("/Resources/area.png", UriKind.RelativeOrAbsolute));
                 label01.Content = "区域演示";
             }
+        }
+
+        /// <summary>
+        /// 分享按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShareBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (shareWindow == null)
+            {
+                shareWindow = new ShareWindow();
+                shareWindow.mainWindow = this;
+                var p = ShareBtn.PointToScreen(new Point(0, 0));
+
+                shareWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                shareWindow.Left = p.X - 380;
+                shareWindow.Top = p.Y+40;
+
+                shareWindow.ShowDialog();
+            }
+            else
+            {
+                shareWindow.Close();
+                shareWindow = null;
+            }
+        }
+
+        public void CloseShareWindow()
+        {
+            shareWindow.Close();
+            shareWindow = null;
         }
     }
 }

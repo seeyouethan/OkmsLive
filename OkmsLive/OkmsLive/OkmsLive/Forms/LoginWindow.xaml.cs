@@ -1,5 +1,10 @@
 ﻿using OkmsLive.HelpersLib;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace OkmsLive.Forms
 {
@@ -9,10 +14,13 @@ namespace OkmsLive.Forms
     public partial class LoginWindow : Window
     {
 
-        private bool isMd5Pwd = false;
+        private bool isMd5Pwd = false;//用户输入的密码是否是MD5加密后的
+        private List<string> Users;//获取本地存储的用户名与密码
+
         public LoginWindow()
         {
             InitializeComponent();
+            Users = XmlHelper.GetStoreUsers();//获取本地存储的用户名与密码
             UserName.Focus();
         }
 
@@ -155,6 +163,56 @@ namespace OkmsLive.Forms
             */
         }
 
-       
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            CloseBtn.Source = new BitmapImage(new Uri("/Resources/toClose_hover.png", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseBtn.Source = new BitmapImage(new Uri("/Resources/toClose.png", UriKind.RelativeOrAbsolute));
+        }
+
+        /// <summary>
+        /// 关闭按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        /// <summary>
+        /// 最小化按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MinBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Topmost = false;
+            this.WindowState = WindowState.Minimized;
+        }
+
+        /// <summary>
+        /// 用户名文本框失去焦点事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UserName_OnLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            var username = UserName.Text.Trim();
+            if (!string.IsNullOrEmpty(username))
+            {
+                if (Users.Contains(username))
+                {
+                    var enPwd = XmlHelper.GetUserPassword(username);
+                    if (!string.IsNullOrEmpty(enPwd))
+                    {
+                        PasswordText.Password = SecureHelper.Base64Decode(enPwd);
+                    }
+                }
+            }
+        }
     }
 }

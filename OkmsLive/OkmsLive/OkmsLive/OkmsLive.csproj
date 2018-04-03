@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -62,6 +63,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControllers\LoadingWait.xaml.cs">
+      <DependentUpon>LoadingWait.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Forms\LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\NoCourseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Forms\ChooseCourseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,10 +81,6 @@
     <Page Include="Forms\LiveTypeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Forms\LoadingWait.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Forms\CloseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,14 +99,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Enums\LiveType.cs" />
+    <Compile Include="Forms\LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NoCourseWindow.xaml.cs">
+      <DependentUpon>NoCourseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChooseCourseWindow.xaml.cs">
       <DependentUpon>ChooseCourseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\LiveTypeWindow.xaml.cs">
       <DependentUpon>LiveTypeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoadingWait.xaml.cs">
-      <DependentUpon>LoadingWait.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CloseWindow.xaml.cs">
       <DependentUpon>CloseWindow.xaml</DependentUpon>
@@ -114,16 +125,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControllers\LoadingWait.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\ShareWindow.xaml.cs">
       <DependentUpon>ShareWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpersLib\HttpWebHelper.cs" />
+    <Compile Include="HelpersLib\ImageExtensions.cs" />
     <Compile Include="HelpersLib\JsonHandleHelper.cs" />
     <Compile Include="HelpersLib\LogHelper.cs" />
     <Compile Include="HelpersLib\SecureHelper.cs" />
     <Compile Include="HelpersLib\XmlHelper.cs" />
+    <Compile Include="Models\ControlFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -181,9 +198,6 @@
     <Resource Include="Resources\toNormal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\login_background.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\loginBg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +208,15 @@
     <Resource Include="Resources\arrowGray.png" />
     <Resource Include="Resources\noCourse.png" />
     <Resource Include="Resources\selested.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\toClose_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\toClose2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\code.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OkmsLive.Forms"
         mc:Ignorable="d"
         Title="关闭提示" Height="550" Width="730" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowDrop="True" ResizeMode="NoResize" BorderThickness="0" ShowInTaskbar="False" >
-    <Border CornerRadius="1" BorderThickness="1,1,1,1" BorderBrush="Gainsboro">
+    <Border CornerRadius="1" BorderThickness="1,1,1,1" BorderBrush="#FFD8D8D8">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
@@ -37,6 +37,94 @@
                     <!--滚动条 这个高度是需要设置的 否则不出来滚动条-->
                     <ScrollViewer x:Name="UserOnlinePanel" Height="366" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#FFE2F2FF" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFE2F2FF">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/selested.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF41A0E9" FontSize="14">...直播中</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF333333" FontSize="14">OKMS需求研讨</Label>
+                                    <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">（15:00-16:00）</Label>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Width="400">
+                                        <Label VerticalContentAlignment="Center" Foreground="#FF666666" FontSize="14">即将开始</Label>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
                             <Border Background="#F7F7F7" Height="50" Margin="0,4,0,4" Width="660" BorderThickness="1" CornerRadius="1" BorderBrush="#FFF7F7F7">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Width="24" Height="24" Stretch="Fill"  Source="/Resources/arrowGray.png"/>

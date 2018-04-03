@@ -5,16 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OkmsLive.Forms"
         mc:Ignorable="d"
-        Title="ShareWindow" Height="400" Width="380" WindowStyle="None" WindowState="Normal" ResizeMode="NoResize" ShowInTaskbar="False" Background="White">
-    <Border BorderThickness="2,2,2,2">
-        <Border.BorderBrush>
-            <RadialGradientBrush>
-                <GradientStop Color="#FF0C0C0C" Offset="0.197"/>
-                <GradientStop Color="White" Offset="1"/>
-            </RadialGradientBrush>
-        </Border.BorderBrush>
-        <StackPanel>
-            
-        </StackPanel>
+        Title="ShareWindow" Height="370" Width="410" WindowStyle="None" WindowState="Normal" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Border CornerRadius="1" BorderThickness="1,1,1,1" BorderBrush="#FFD8D8D8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="CloseBtn" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown" Cursor="Hand" Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,6,0" Source="/Resources/toClose2.png" Width="24" Height="24"></Image>
+            <Label Grid.Column="1" Grid.Row="1" Foreground="#FF6A6A6A" FontSize="16">分享链接：</Label>
+            <Border Grid.Column="1" Grid.Row="2" Height="30" Width="300" CornerRadius="1" BorderThickness="1,1,1,1" BorderBrush="#FFD8D8D8">
+                <TextBox x:Name="ShareTextbox" IsReadOnly="True" Width="288" Height="28" VerticalContentAlignment="Center" BorderBrush="White" FontSize="16" Foreground="Black" BorderThickness="0" TextOptions.TextHintingMode="Animated" ></TextBox>
+            </Border>
+            <Button x:Name="CopyBtn" Grid.Column="2" Grid.Row="2" Height="28" Style="{StaticResource ButtonStyle2}" FontSize="14" Click="CopyBtn_Click">复制</Button>
+            <Label Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Right" Foreground="#FF41A0E9">链接已复制</Label>
+            <Image Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/Resources/code.png" Width="160" Height="160"></Image>
+            <Label Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="16" Foreground="#FF6A6A6A">（通过手机观看）</Label>
+        </Grid>
     </Border>
 </Window>

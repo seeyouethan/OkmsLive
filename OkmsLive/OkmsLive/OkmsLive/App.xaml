@@ -63,7 +63,7 @@
                             <Storyboard x:Key="Storyboard1"/>
                         </ControlTemplate.Resources>
                         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
-                                SnapsToDevicePixels="true" CornerRadius="0" Cursor="Hand">
+                                SnapsToDevicePixels="true" CornerRadius="1" Cursor="Hand">
                             <ContentPresenter x:Name="contentPresenter" 
                                               Focusable="False" 
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 

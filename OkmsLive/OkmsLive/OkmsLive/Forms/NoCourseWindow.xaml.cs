@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 namespace OkmsLive.Forms
 {
     /// <summary>
-    /// ShareWindow.xaml 的交互逻辑
+    /// NoCourseWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ShareWindow : Window
+    public partial class NoCourseWindow : Window
     {
-        public ShareWindow()
+        public NoCourseWindow()
         {
             InitializeComponent();
         }
-
-        public MainWindow mainWindow = new MainWindow();
 
         private void Image_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -38,20 +36,7 @@ namespace OkmsLive.Forms
 
         private void CloseBtn_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            mainWindow.CloseShareWindow();
-        }
-
-        private void CopyBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Clipboard.SetText(ShareTextbox.Text);
-                MessageBox.Show("已成功将文本框内容复制到剪贴板!");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error!");
-            }
+            Environment.Exit(0);
         }
     }
 }

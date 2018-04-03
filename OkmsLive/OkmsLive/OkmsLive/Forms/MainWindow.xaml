@@ -19,7 +19,7 @@
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
                             <Label VerticalAlignment="Center" Content="主持人：相生昌" Margin="10,0,0,0" FontSize="14px" Foreground="#B0DDFF" />
                             <StackPanel Width="2" Height="22" Background="#B0DDFF" Margin="15,0,15,0"></StackPanel>
-                            <StackPanel Height="40" Width="40" VerticalAlignment="Center" Orientation="Horizontal" Cursor="Hand" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" ToolTip="分享">
+                            <StackPanel x:Name="ShareBtn" Height="40" Width="40" VerticalAlignment="Center" Orientation="Horizontal" Cursor="Hand" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" MouseLeftButtonDown="ShareBtn_MouseLeftButtonDown" ToolTip="分享">
                                 <Image Margin="8,0,0,0" Source="/Resources/share.png" Width="24" Height="24"></Image>
                             </StackPanel>
                             <StackPanel x:Name="MinBtn" MouseLeftButtonDown="MinBtn_MouseLeftButtonDown" Height="40" Width="40" VerticalAlignment="Center" Orientation="Horizontal" Background="#41A0EA" Cursor="Hand" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" ToolTip="最小化">
