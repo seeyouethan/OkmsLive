@@ -35,9 +35,27 @@
   <PropertyGroup>
     <StartupObject>OkmsLive.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>C:\com\AForge\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>C:\com\AForge\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>C:\com\AForge\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>C:\com\AForge\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>C:\com\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>C:\com\live\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -63,6 +81,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Forms\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpersLib\AudioHelper.cs" />
+    <Compile Include="HelpersLib\CommonHelper.cs" />
+    <Compile Include="HelpersLib\VideoHelper.cs" />
+    <Compile Include="Models\Microphone.cs" />
+    <Compile Include="Models\SimpleModel.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
+    <Compile Include="Models\WasapiCaptureViewModel.cs" />
     <Compile Include="UserControllers\LoadingWait.xaml.cs">
       <DependentUpon>LoadingWait.xaml</DependentUpon>
     </Compile>
@@ -78,7 +106,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Forms\LiveTypeWindow.xaml">
+    <Page Include="Forms\ChooseLiveTypeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,8 +136,8 @@
     <Compile Include="Forms\ChooseCourseWindow.xaml.cs">
       <DependentUpon>ChooseCourseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LiveTypeWindow.xaml.cs">
-      <DependentUpon>LiveTypeWindow.xaml</DependentUpon>
+    <Compile Include="Forms\ChooseLiveTypeWindow.xaml.cs">
+      <DependentUpon>ChooseLiveTypeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CloseWindow.xaml.cs">
       <DependentUpon>CloseWindow.xaml</DependentUpon>
@@ -121,6 +149,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Forms\SettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Forms\ShareWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +249,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

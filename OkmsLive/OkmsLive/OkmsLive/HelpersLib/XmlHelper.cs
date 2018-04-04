@@ -11,7 +11,8 @@ namespace OkmsLive.HelpersLib
 {
     public static class XmlHelper
     {
-        private static readonly string XmlPath = System.Windows.Forms.Application.StartupPath + "\\appconfig.config";//网站配置xml
+        private static readonly string XmlPath = System.Windows.Forms.Application.StartupPath + "\\appconfig.config";
+
         /// <summary>
         /// 设置对应选项的Index和Value
         /// </summary>

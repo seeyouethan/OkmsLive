@@ -1,4 +1,5 @@
 ﻿using OkmsLive.Enums;
+using OkmsLive.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +18,13 @@ namespace OkmsLive.Forms
 
         private bool IsMax = false;//界面是否是最大化状态
         private bool IsLive = false;//是否正在直播
-        private LiveTypeWindow liveTypeWindow;//直播方式选择窗口
+        private ChooseLiveTypeWindow liveTypeWindow;//直播方式选择窗口
         private ShareWindow shareWindow;//分享窗口
+        private ControlFactory factory = new ControlFactory();
 
         public LiveType liveType = LiveType.Desktop;
+
+        
 
         #region 界面交互
 
@@ -108,6 +112,14 @@ namespace OkmsLive.Forms
         public MainWindow()
         {
             InitializeComponent();
+
+            //模拟对话
+            factory.AddMessage("/Resources/headphoto.jpg", "张三", "2018-11-16 11:28:23", "大家好", MessageGrid);
+            factory.AddMessage("/Resources/headphoto.jpg", "李四", "2018-11-16 11:28:23", "你好", MessageGrid);
+            factory.AddMessage("/Resources/headphoto.jpg", "张三", "2018-11-16 11:28:23", "现在开始讲课，有要发言的同学吗？", MessageGrid);
+            factory.AddMessage("/Resources/headphoto.jpg", "刘静杰", "2018-11-16 11:28:23", "老师你好我要发言，我的问题的这个测试长度看看是否是会自动增长的", MessageGrid);
+            DiscussPanel.ScrollToBottom();
+
         }
 
 
@@ -136,6 +148,8 @@ namespace OkmsLive.Forms
         private void SettingPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //打开设置对话框
+            var dlg = new SettingsWindow();
+            dlg.ShowDialog();
 
         }
 
@@ -154,7 +168,7 @@ namespace OkmsLive.Forms
             //打开直播类型选项
             if (liveTypeWindow == null)
             {
-                liveTypeWindow = new LiveTypeWindow();
+                liveTypeWindow = new ChooseLiveTypeWindow();
                 liveTypeWindow.WindowStartupLocation = WindowStartupLocation.Manual;
                 liveTypeWindow.Left = this.Left + 308;
                 liveTypeWindow.Top = this.Top + this.Height - 110;

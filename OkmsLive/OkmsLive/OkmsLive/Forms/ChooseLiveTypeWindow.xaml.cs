@@ -18,9 +18,9 @@ namespace OkmsLive.Forms
     /// <summary>
     /// LiveTypeWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class LiveTypeWindow : Window
+    public partial class ChooseLiveTypeWindow : Window
     {
-        public LiveTypeWindow()
+        public ChooseLiveTypeWindow()
         {
             InitializeComponent();
         }

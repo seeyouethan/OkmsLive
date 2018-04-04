@@ -368,14 +368,14 @@
                         <StackPanel x:Name="MessagePanel">
                             <Grid x:Name="MessageGrid">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
+                                    <!--<RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>-->
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="90" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <StackPanel  Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <!--<StackPanel  Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                                     <Grid Margin="8,0,0,0">
                                         <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
                                             <Image.OpacityMask>
@@ -389,7 +389,7 @@
                                 <StackPanel  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0"  Width="150">
                                     <TextBlock  TextWrapping="Wrap">如果上述列表中没有摄像头选项，请重新连接摄像头与电脑，然后点击刷新按钮重试。
 如果摄像头带有音频输入，则在上图的【音频输入设备】中选择摄像头对应的音频项</TextBlock>
-                                </StackPanel>
+                                </StackPanel>-->
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>
