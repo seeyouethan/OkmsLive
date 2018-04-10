@@ -120,6 +120,16 @@ namespace OkmsLive.Forms
             factory.AddMessage("/Resources/headphoto.jpg", "刘静杰", "2018-11-16 11:28:23", "老师你好我要发言，我的问题的这个测试长度看看是否是会自动增长的", MessageGrid);
             DiscussPanel.ScrollToBottom();
 
+
+
+            var el1 = factory.GreateOnlineUser("/Resources/headphoto.jpg", "Lucy");
+            var el2 = factory.GreateOnlineUser("/Resources/headphoto.jpg", "Dav");
+            var el3 = factory.GreateOnlineUser("/Resources/headphoto.jpg", "Jerax");
+            OnlieUsers.Children.Add(el1);
+            OnlieUsers.Children.Add(el2);
+            OnlieUsers.Children.Add(el3);
+
+
         }
 
 

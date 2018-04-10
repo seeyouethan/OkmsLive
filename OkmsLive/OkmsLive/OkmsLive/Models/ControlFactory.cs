@@ -252,5 +252,62 @@ namespace OkmsLive.Models
             Grid.SetColumnSpan(messagestackpanel, 2);
         }
 
+        public UIElement GreateOnlineUser(string imgUrl,string userName)
+        {
+            /*
+             * 创建当前在线人员  头像 姓名 
+                <StackPanel Margin="0,6,0,6">
+                    <StackPanel Width="270" Height="40" Orientation="Horizontal">
+                        <Grid>
+                            <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
+                                <Image.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
+                                </Image.OpacityMask>
+                            </Image>
+                        </Grid>
+                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">黎明</Label>
+                        <Button Style="{StaticResource ButtonStyle2}" Margin="110,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>          
+                    </StackPanel>
+                </StackPanel>
+             */
+            var stackpanel = new StackPanel();
+            stackpanel.Margin = new Thickness(0, 6, 0, 6);
+            stackpanel.Cursor = Cursors.Hand;
+
+            var stackpanel2 = new StackPanel();
+            stackpanel2.Width = 270;
+            stackpanel2.Height = 40;
+            stackpanel2.Orientation = Orientation.Horizontal;
+
+            var grid = new Grid();
+
+            var img = new Image();
+            img.Source = new BitmapImage(new Uri(imgUrl, UriKind.RelativeOrAbsolute));
+            img.Width = 32;
+            img.Height = 32;
+            img.Stretch = Stretch.Fill;
+            var bind = new Binding();
+            bind.ElementName = "OnlineImgBorder";//界面上已经写了OnlineImgBorder
+            var vbsh = new VisualBrush();
+            BindingOperations.SetBinding(vbsh, VisualBrush.VisualProperty, bind);
+            img.OpacityMask = vbsh;
+
+            var label = new Label();
+            label.VerticalAlignment = VerticalAlignment.Center;
+            label.FontSize = 12;
+            label.Foreground= new SolidColorBrush(Color.FromRgb(102, 102, 102));
+            label.Width = 50;
+            label.Content = userName;
+
+            var button = new Button();
+
+            grid.Children.Add(img);
+            stackpanel2.Children.Add(grid);
+            stackpanel2.Children.Add(label);
+            stackpanel.Children.Add(stackpanel2);
+
+            return stackpanel;
+        }
+
     }
 }

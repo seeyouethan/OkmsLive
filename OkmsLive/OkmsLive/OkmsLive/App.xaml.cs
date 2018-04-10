@@ -19,7 +19,7 @@ namespace OkmsLive
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var dlg = new MainWindow();
+            var dlg = new LoginWindow();
             dlg.ShowDialog();
 
             //if (e.Args.Length != 0)

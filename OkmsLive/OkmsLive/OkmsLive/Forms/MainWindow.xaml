@@ -52,9 +52,9 @@
                 <StackPanel VerticalAlignment="Stretch">
                     <!--滚动条 这个高度是需要设置的 否则不出来滚动条-->
                     <ScrollViewer x:Name="UserOnlinePanel" Height="635" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                        <StackPanel>
+                        <StackPanel x:Name="OnlieUsers" >
                             <!--发言人头像信息-->
-                            <WrapPanel Orientation="Horizontal">
+                            <WrapPanel Orientation="Horizontal" Visibility="Collapsed">
                                 <Border  Width="80" Height="130" Margin="14,35,0,35" BorderBrush="#FFD5EEEB" BorderThickness="1">
                                     <StackPanel>
                                         <Image Margin="0,8,0,0" Source="/Resources/hand_blue.png" Width="18" Height="18" HorizontalAlignment="Right"/>
@@ -126,89 +126,6 @@
                                 </StackPanel>
                             </StackPanel>
                             <!--当前在线人员信息-->
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">黎明</Label>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60">连接中...</Label>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">张学友</Label>
-                                    <Image Source="/Resources/hand.png" Width="24" Height="24"></Image>
-                                    <Image Margin="100,0,10,0" Source="/Resources/yes.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand"></Image>
-                                    <Label Margin="0,0,10,0" VerticalAlignment="Center" Height="16" Background="#999999" Width="1"></Label>
-                                    <Image Source="/Resources/no.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand"></Image>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">成龙</Label>
-                                    <Image Source="/Resources/speak.png" Width="24" Height="24"></Image>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60" HorizontalContentAlignment="Center">01:23:27</Label>
-                                    <Button Style="{StaticResource ButtonStyle2}" Margin="26,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">停止发言</Button>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                    <Button Style="{StaticResource ButtonStyle2}" Margin="110,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">周星驰</Label>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888">已拒绝邀请</Label>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0,6,0,6">
-                                <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                    <Grid>
-                                        <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                            <Image.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                            </Image.OpacityMask>
-                                        </Image>
-                                    </Grid>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">李连杰</Label>
-                                    <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888">等待接受邀请...</Label>
-                                </StackPanel>
-
                                 <StackPanel Margin="0,6,0,6">
                                     <StackPanel Width="270" Height="40" Orientation="Horizontal">
                                         <Grid>
@@ -218,10 +135,10 @@
                                                 </Image.OpacityMask>
                                             </Image>
                                         </Grid>
-                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">黎明</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60">连接中...</Label>
                                     </StackPanel>
                                 </StackPanel>
-
                                 <StackPanel Margin="0,6,0,6">
                                     <StackPanel Width="270" Height="40" Orientation="Horizontal">
                                         <Grid>
@@ -231,7 +148,26 @@
                                                 </Image.OpacityMask>
                                             </Image>
                                         </Grid>
-                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">张学友</Label>
+                                        <Image Source="/Resources/hand.png" Width="24" Height="24"></Image>
+                                        <Image Margin="100,0,10,0" Source="/Resources/yes.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand"></Image>
+                                        <Label Margin="0,0,10,0" VerticalAlignment="Center" Height="16" Background="#999999" Width="1"></Label>
+                                        <Image Source="/Resources/no.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand"></Image>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,6,0,6">
+                                    <StackPanel Width="270" Height="40" Orientation="Horizontal">
+                                        <Grid>
+                                            <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
+                                                <Image.OpacityMask>
+                                                    <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
+                                                </Image.OpacityMask>
+                                            </Image>
+                                        </Grid>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">成龙</Label>
+                                        <Image Source="/Resources/speak.png" Width="24" Height="24"></Image>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60" HorizontalContentAlignment="Center">01:23:27</Label>
+                                        <Button Style="{StaticResource ButtonStyle2}" Margin="26,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">停止发言</Button>
                                     </StackPanel>
                                 </StackPanel>
                                 <StackPanel Margin="0,6,0,6">
@@ -244,9 +180,9 @@
                                             </Image>
                                         </Grid>
                                         <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
+                                        <Button Style="{StaticResource ButtonStyle2}" Margin="110,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>
                                     </StackPanel>
                                 </StackPanel>
-
                                 <StackPanel Margin="0,6,0,6">
                                     <StackPanel Width="270" Height="40" Orientation="Horizontal">
                                         <Grid>
@@ -256,102 +192,11 @@
                                                 </Image.OpacityMask>
                                             </Image>
                                         </Grid>
-                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">周星驰</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888">已拒绝邀请</Label>
                                     </StackPanel>
                                 </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,6,0,6">
-                                        <StackPanel Width="270" Height="40" Orientation="Horizontal">
-                                            <Grid>
-                                                <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=OnlineImgBorder}" />
-                                                    </Image.OpacityMask>
-                                                </Image>
-                                            </Grid>
-                                            <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">谢霆锋</Label>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </StackPanel>
-                        </StackPanel>
+                            </StackPanel>
                     </ScrollViewer>
                     </StackPanel>
                 </Border>
@@ -412,12 +257,12 @@
                             </Image>
                             <Label x:Name="label01" VerticalAlignment="Center" Content="桌面演示" FontSize="12px" Foreground="#41A0EA" />
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="CameraPanel_MouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="CameraPanel_MouseLeftButtonDown" Cursor="Hand">
                             <Image  Width="24" Height="24" Stretch="Fill"  Source="/Resources/camera.png">
                             </Image>
                             <Label VerticalAlignment="Center" Content="摄像设备" FontSize="12px" Foreground="#41A0EA" />
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="SettingPanel_MouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="SettingPanel_MouseLeftButtonDown" Cursor="Hand">
                             <Image  Width="24" Height="24" Stretch="Fill"  Source="/Resources/config.png">
                             </Image>
                             <Label VerticalAlignment="Center" Content="直播配置" FontSize="12px" Foreground="#41A0EA" />
