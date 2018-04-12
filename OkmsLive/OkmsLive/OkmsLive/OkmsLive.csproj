@@ -75,18 +75,26 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enums\Colors.cs" />
+    <Compile Include="Forms\ChooseCameraWindow.xaml.cs">
+      <DependentUpon>ChooseCameraWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpersLib\AudioHelper.cs" />
     <Compile Include="HelpersLib\CommonHelper.cs" />
+    <Compile Include="HelpersLib\FFmpegHelper.cs" />
+    <Compile Include="HelpersLib\GetTextDisplayWidthHelper.cs" />
     <Compile Include="HelpersLib\VideoHelper.cs" />
+    <Compile Include="Models\ColorModels.cs" />
     <Compile Include="Models\Microphone.cs" />
     <Compile Include="Models\SimpleModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
@@ -94,6 +102,10 @@
     <Compile Include="UserControllers\LoadingWait.xaml.cs">
       <DependentUpon>LoadingWait.xaml</DependentUpon>
     </Compile>
+    <Page Include="Forms\ChooseCameraWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Forms\LoadingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

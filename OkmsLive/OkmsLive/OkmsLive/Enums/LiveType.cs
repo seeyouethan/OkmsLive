@@ -10,6 +10,8 @@ namespace OkmsLive.Enums
         [Description("窗口")]
         Window = 2,
         [Description("软件")]
-        Software = 3
+        Software = 3,
+        [Description("摄像头")]
+        Camera = 4
     }
 }

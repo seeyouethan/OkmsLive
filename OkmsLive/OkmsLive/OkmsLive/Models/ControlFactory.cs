@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System;
 using System.Windows.Data;
+using System.Threading;
 
 namespace OkmsLive.Models
 {
@@ -257,7 +258,7 @@ namespace OkmsLive.Models
             /*
              * 创建当前在线人员  头像 姓名 
                 <StackPanel Margin="0,6,0,6">
-                    <StackPanel Width="270" Height="40" Orientation="Horizontal">
+                    <StackPanel Width="190" Height="40" Orientation="Horizontal">
                         <Grid>
                             <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
                                 <Image.OpacityMask>
@@ -266,18 +267,21 @@ namespace OkmsLive.Models
                             </Image>
                         </Grid>
                         <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">黎明</Label>
-                        <Button Style="{StaticResource ButtonStyle2}" Margin="110,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>          
+                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60">连接中...</Label>
+                        <Button Style="{StaticResource ButtonStyle2}" Margin="30,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>          
                     </StackPanel>
                 </StackPanel>
              */
             var stackpanel = new StackPanel();
             stackpanel.Margin = new Thickness(0, 6, 0, 6);
             stackpanel.Cursor = Cursors.Hand;
+            stackpanel.Background = ColorModels.OnlineUser;
 
             var stackpanel2 = new StackPanel();
-            stackpanel2.Width = 270;
+            stackpanel2.Width = 190;
             stackpanel2.Height = 40;
             stackpanel2.Orientation = Orientation.Horizontal;
+            
 
             var grid = new Grid();
 
@@ -300,14 +304,162 @@ namespace OkmsLive.Models
             label.Content = userName;
 
             var button = new Button();
+            button.Margin = new Thickness(30, 0, 0, 0);
+            button.FontSize = 12;
+            button.Width = 70;
+            button.Height = 30;
+            button.HorizontalAlignment = HorizontalAlignment.Right;
+            button.VerticalAlignment = VerticalAlignment.Center;
+            button.Content = "邀请发言";
+            //设置样式
+            button.SetValue(Button.StyleProperty, Application.Current.Resources["ButtonStyle2"]);
+            button.Click += Button_Click;
+            button.Visibility = Visibility.Collapsed;
+
+            //连接中... label
+            var labelStatus = new Label();
+            labelStatus.Content = "连接中...";
+            labelStatus.VerticalAlignment = VerticalAlignment.Center;
+            labelStatus.Width = 60;
+            labelStatus.FontSize = 12;
+            labelStatus.Foreground = new SolidColorBrush(Color.FromRgb(136, 136, 136));
+            labelStatus.Visibility = Visibility.Collapsed;
+            
 
             grid.Children.Add(img);
             stackpanel2.Children.Add(grid);
             stackpanel2.Children.Add(label);
+            stackpanel2.Children.Add(button);
+            stackpanel2.Children.Add(labelStatus);
             stackpanel.Children.Add(stackpanel2);
 
+            stackpanel.MouseEnter += Stackpanel_MouseEnter;
+            stackpanel.MouseLeave += Stackpanel_MouseLeave;
+            
             return stackpanel;
         }
 
+        /// <summary>
+        /// 鼠标进入控件 显示邀请发言按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Stackpanel_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var ele = sender as StackPanel;
+            foreach (var item in (ele.Children[0] as StackPanel).Children)
+            {
+                if (item is Button)
+                {
+                    (item as Button).Visibility = Visibility.Visible;
+                }
+            }
+            ele.Background = ColorModels.OnlineUserHover;
+        }
+
+        /// <summary>
+        /// 鼠标离开控件 隐藏邀请发言按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Stackpanel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var ele = sender as StackPanel;
+            foreach(var item in (ele.Children[0] as StackPanel).Children)
+            {
+                if(item is Button)
+                {
+                    (item as Button).Visibility = Visibility.Collapsed;
+                }
+            }
+            ele.Background = ColorModels.OnlineUser;
+        }
+
+
+        /// <summary>
+        /// 点击邀请发言按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+
+
+            if (btn.Content.ToString() == "邀请发言")
+            {
+                //MessageBox.Show("邀请发言");
+                //todo:发送邀请发言请求
+                
+                //界面修改 
+                var stackpanel= VisualTreeHelper.GetParent(VisualTreeHelper.GetParent(btn) as StackPanel) as StackPanel;
+                foreach(var item in (stackpanel.Children[0] as StackPanel).Children)
+                {
+                    if(item is Label)
+                    {
+                        if((item as Label).Content.ToString()== "连接中...")
+                        {
+                            (item as Label).Visibility = Visibility.Visible;
+                        }
+                    }
+                }
+                //移除父stackpanel的mouseenter mouseleave事件
+                stackpanel.MouseEnter -= Stackpanel_MouseEnter;
+                stackpanel.MouseLeave -= Stackpanel_MouseLeave;
+                //隐藏自己
+                btn.Visibility = Visibility.Collapsed;
+                btn.Content = "停止发言";
+                stackpanel.Background = ColorModels.OnlineUser;
+                Thread.Sleep(10000);
+                return;
+            }
+            if (btn.Content.ToString() == "邀请发言")
+            {
+                //MessageBox.Show("停止发言");
+
+                return;
+            }
+        }
+
+
+        
+
+
+
+        ///// <summary>
+        ///// 鼠标进入控件 显示邀请发言按钮
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void Stackpanel_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    var ele = sender as StackPanel;
+        //    foreach (var item in (ele.Children[0] as StackPanel).Children)
+        //    {
+        //        if (item is Button)
+        //        {
+        //            (item as Button).Visibility = Visibility.Visible;
+        //        }
+        //    }
+        //    ele.Background = ColorModels.OnlineUserHover;
+        //}
+
+        ///// <summary>
+        ///// 鼠标离开控件 隐藏邀请发言按钮
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void Stackpanel_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    var ele = sender as StackPanel;
+        //    foreach (var item in (ele.Children[0] as StackPanel).Children)
+        //    {
+        //        if (item is Button)
+        //        {
+        //            (item as Button).Visibility = Visibility.Collapsed;
+        //        }
+        //    }
+        //    ele.Background = ColorModels.OnlineUser;
+        //}
     }
 }

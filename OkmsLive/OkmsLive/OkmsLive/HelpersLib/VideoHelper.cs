@@ -8,6 +8,10 @@ namespace OkmsLive.HelpersLib
     public static class VideoHelper
     {
 
+        /// <summary>
+        /// 获取本地所有的Camera 除了模拟的screen-capture-recorder之外
+        /// </summary>
+        /// <returns></returns>
         public static List<SimpleModel> GetAllCameras()
         {
             List<SimpleModel> cameraList = new List<SimpleModel>();
@@ -155,7 +159,7 @@ namespace OkmsLive.HelpersLib
             return cameraList;
         }
         /// <summary>
-        /// 设置默认的摄像头
+        /// 设置默认的摄像头，如果没有 则设置为“无”
         /// </summary>
         public static void SetDefaultCamera()
         {
@@ -174,6 +178,49 @@ namespace OkmsLive.HelpersLib
                     }
                 }
             }
+            else
+            {
+                XmlHelper.SetValue("Camera", "无");
+            }
+        }
+
+        /// <summary>
+        /// 根据cameraName获取该摄像头的信息 
+        /// </summary>
+        /// <param name="cameraName">摄像头名称</param>
+        /// <returns>返回类型为VideoCaptureDevice的摄像头 若没有查询到，则返回为null</returns>
+        public static VideoCaptureDevice GetCameraInfo(string cameraName)
+        {
+            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            for(int i = 0; i < videoDevices.Count; i++)
+            {
+                var cam = videoDevices[i];
+                if (cam.Name == cameraName)
+                {
+                    return new VideoCaptureDevice(cam.MonikerString);
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 根据摄像头名称获取该摄像头的第一个分辨率，若没有分辨 则返回为空字符串
+        /// </summary>
+        /// <param name="camereName"></param>
+        /// <returns></returns>
+        public static string GetCamereFirstResolution(string cameraName)
+        {
+            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            for (int i = 0; i < videoDevices.Count; i++)
+            {
+                var cam = videoDevices[i];
+                if (cam.Name == cameraName)
+                {
+                    return VideoHelper.GetCameraResolution(i)[0].Value.ToString() ;
+                }
+            }
+            return "";
+
         }
     }
 }
