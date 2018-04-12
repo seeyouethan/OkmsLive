@@ -167,8 +167,7 @@
                                             </Image>
                                         </Grid>
                                         <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">成龙</Label>
-                                        <Image Source="/Resources/speak.png" Width="24" Height="24"></Image>
-                                        
+                                        <Image Source="/Resources/speak.png" Width="24" Height="24"></Image>                                        
                                         <Button Style="{StaticResource ButtonStyle2}" Margin="6,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">停止发言</Button>
                                     </StackPanel>
                                 </StackPanel>
@@ -185,7 +184,7 @@
                                         <Button Style="{StaticResource ButtonStyle2}" Margin="30,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>
                                     </StackPanel>
                                 </StackPanel>
-                                <StackPanel Margin="0,6,0,6">
+                                <StackPanel Margin="0,6,0,6" x:Name="TestStackPanel">
                                     <StackPanel Width="190" Height="40" Orientation="Horizontal">
                                         <Grid>
                                             <Image Width="32" Height="32" Stretch="Fill"  Source="/Resources/headphoto.jpg">
@@ -195,7 +194,14 @@
                                             </Image>
                                         </Grid>
                                         <Label VerticalAlignment="Center" FontSize="12px" Foreground="#666666" Width="50">周星驰</Label>
-                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888">已拒绝邀请</Label>
+                                        <Label VerticalAlignment="Center" FontSize="12px" Foreground="#888888" Width="60" Visibility="Collapsed">连接中...</Label>
+                                        <Image Source="/Resources/speak.png" Width="24" Height="24" Visibility="Collapsed"></Image>
+                                        <Image Source="/Resources/hand.png" Width="24" Height="24" Visibility="Collapsed"></Image>
+                                        <Image x:Name="Image2" Margin="10,0,10,0" Source="/Resources/yes.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand" Visibility="Collapsed"></Image>
+                                        <Label Margin="0,0,10,0" VerticalAlignment="Center" Height="16" Background="#999999" Width="1" Visibility="Collapsed"></Label>
+                                        <Image x:Name="Image3" Source="/Resources/no.png" Width="16" Height="16" Stretch="UniformToFill" Cursor="Hand" Visibility="Collapsed"></Image>
+                                        <!--有时候margin会为6,0,0,0-->
+                                        <Button Visibility="Collapsed" Style="{StaticResource ButtonStyle2}" Margin="30,0,0,0" FontSize="12" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">邀请发言</Button>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -244,7 +250,7 @@
                 <!--发言按钮-->
                 <Border BorderBrush="Gainsboro" BorderThickness="2,0,0,0">
                     <StackPanel HorizontalAlignment="Stretch" Height="60">
-                        <Button Margin="0,10,0,0" Style="{StaticResource ButtonStyle2}" FontSize="12" Width="170" Height="40">发表意见</Button>
+                        <Button x:Name="MessageBtn" Click="MessageBtn_Click" Margin="0,10,0,0" Style="{StaticResource ButtonStyle2}" FontSize="12" Width="170" Height="40">发表意见</Button>
                     </StackPanel>
                 </Border>
 

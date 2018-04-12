@@ -98,6 +98,7 @@ namespace OkmsLive.Forms
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var dlg = new CloseWindow();
+            dlg.Owner = this;
             if (dlg.ShowDialog() == true)
             {
                 if (PreviewPlayer.IsRunning)
@@ -106,10 +107,6 @@ namespace OkmsLive.Forms
                     PreviewPlayer.WaitForStop();
                 }
                 Environment.Exit(0);
-            }
-            else
-            {
-                e.Cancel = true;
             }
         }
 
@@ -131,11 +128,7 @@ namespace OkmsLive.Forms
 
         private void CloseBtn_MouseLeftButtonDown(object sender,MouseButtonEventArgs e)
         {
-            var dlg = new CloseWindow();
-            if (dlg.ShowDialog() == true)
-            {
-                Environment.Exit(0);
-            }
+            Window_Closing(null, null);
         }
         private void SizeBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -268,6 +261,7 @@ namespace OkmsLive.Forms
                 cameraWindow.Top = this.Top + this.Height - 110;
 
                 cameraWindow.mainWindow = this;
+                cameraWindow.Owner = this;
                 cameraWindow.ShowDialog();
             }
             else
@@ -292,6 +286,7 @@ namespace OkmsLive.Forms
                 liveTypeWindow.Top = this.Top + this.Height - 110;
 
                 liveTypeWindow.mainWindow = this;
+                liveTypeWindow.Owner = this;
                 liveTypeWindow.ShowDialog();
             }
             else
@@ -347,7 +342,7 @@ namespace OkmsLive.Forms
                 shareWindow.WindowStartupLocation = WindowStartupLocation.Manual;
                 shareWindow.Left = p.X - 380;
                 shareWindow.Top = p.Y+40;
-
+                shareWindow.Owner = this;
                 shareWindow.ShowDialog();
             }
             else
@@ -776,5 +771,17 @@ namespace OkmsLive.Forms
             }
         }
 
+        /// <summary>
+        /// 发表意见 按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MessageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("对话框测试", "提示");
+            var test= VisualTreeHelper.GetChild(OnlieUsers, 7) as StackPanel;
+            factory.RequestTalk(test);
+            factory.AddMessage("/Resources/headphoto.jpg", "张三", DateTime.Now.ToString("MM-dd hh:MM:ss"), "OKMS直播研讨会议发言", MessageGrid);
+        }
     }
 }
